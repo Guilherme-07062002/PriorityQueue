@@ -1,5 +1,6 @@
 #include <iostream>
 #include "pqueue.hpp"
+#include "node.hpp"
 
 using namespace std;
 
@@ -17,16 +18,25 @@ PriorityQueue::~PriorityQueue()
     cout << "Destroying object...\n";
 }
 
-/*
- *Priority queue node element
- *@param priority Node priority level
- *@param data Information about the node
- */
-struct Node
+void PriorityQueue::enqueue(int priority, string data)
 {
-    int priority;
-    std::string data;
-    Node *next;
+    Node *newNode = new Node(priority, data);
+    // Caso especial: se a fila estiver vazia ou o novo nó tem prioridade maior que a frente
+    if (front == nullptr || priority < front->priority)
+    {
+        newNode->next = front;
+        front = newNode;
+    }
+    else
+    {
+        Node *current = front;
+        // Procura a posição correta para inserir o novo nó
+        while (current->next != nullptr && current->next->priority <= priority)
+        {
+            current = current->next;
+        }
 
-    Node(int priority, const std::string &data) : priority(priority), data(data), next(nullptr) {}
-};
+        newNode->next = current->next;
+        current->next = newNode;
+    }
+}

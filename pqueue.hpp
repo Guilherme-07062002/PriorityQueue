@@ -1,6 +1,7 @@
 #include <iostream>
-#ifndef QUEUE_HPP
-#define QUEUE_HPP
+#include "node.hpp"
+#ifndef PQUEUE_HPP
+#define PQUEUE_HPP
 
 const int capacity = 1000;
 
@@ -14,7 +15,7 @@ public:
      *Add element in Priority Queue
      *@param Node Element to be added
      */
-    void enqueue(Node);
+    void enqueue(int priority, string data);
     void dequeue();
     bool empty();
     void print();
