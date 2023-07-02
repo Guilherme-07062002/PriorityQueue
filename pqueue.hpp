@@ -12,7 +12,7 @@ public:
     ~PriorityQueue();
 
     /*
-     *Add element in Priority Queue
+     *Add element in Priority queue
      *@param priority Priority level of the element
      *@param data Information about the element
      */

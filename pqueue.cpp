@@ -2,11 +2,9 @@
 #include "pqueue.hpp"
 #include "node.hpp"
 
-using namespace std;
-
 PriorityQueue::PriorityQueue()
 {
-    cout << "Building object...\n";
+    std::cout << "Building object...\n";
     length = -1;
     is_empty = true;
     index_start = 0;
@@ -15,10 +13,10 @@ PriorityQueue::PriorityQueue()
 
 PriorityQueue::~PriorityQueue()
 {
-    cout << "Destroying object...\n";
+    std::cout << "Destroying object...\n";
 }
 
-void PriorityQueue::enqueue(int priority, string data)
+void PriorityQueue::enqueue(int priority, std::string data)
 {
     Node *newNode = new Node(priority, data);
 
@@ -37,8 +35,8 @@ void PriorityQueue::enqueue(int priority, string data)
 
         newNode->next = current->next;
         current->next = newNode;
-        cout << "New password enqueued.\n";
     }
+    std::cout << "New element enqueued.\n";
 }
 
 void PriorityQueue::dequeue()
@@ -48,7 +46,7 @@ void PriorityQueue::dequeue()
         Node *nodeToDelete = front;
         front = front->next;
         delete nodeToDelete;
-        cout << "Password removed from queue.\n";
+        std::cout << "Element removed from queue.\n";
     }
 }
 
@@ -61,7 +59,7 @@ void PriorityQueue::print()
 {
     if (empty())
     {
-        cout << "Queue is empty \n";
+        std::cout << "Queue is empty \n";
         return;
     }
 
