@@ -40,3 +40,13 @@ void PriorityQueue::enqueue(int priority, string data)
         current->next = newNode;
     }
 }
+
+void PriorityQueue::dequeue()
+{
+    if (!isEmpty())
+    {
+        Node *nodeToDelete = front;
+        front = front->next;
+        delete nodeToDelete;
+    }
+}
