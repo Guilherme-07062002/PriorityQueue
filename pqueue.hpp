@@ -11,20 +11,6 @@ public:
     ~PriorityQueue();
 
     /*
-     *Priority queue node element
-     *@param priority Node priority level
-     *@param data Information about the node
-     */
-    struct Node
-    {
-        int priority;
-        std::string data;
-        Node *next;
-
-        Node(int priority, const std::string &data) : priority(priority), data(data), next(nullptr) {}
-    };
-
-    /*
      *Add element in Priority Queue
      *@param Node Element to be added
      */
@@ -34,10 +20,10 @@ public:
     void print();
 
 private:
-    Node next;
+    Node *front;
     int index_start;
     bool is_empty;
-    int size;
+    int length;
 
     Node arrayNode[capacity];
 };
