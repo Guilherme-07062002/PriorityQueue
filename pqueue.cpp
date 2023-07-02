@@ -50,3 +50,7 @@ void PriorityQueue::dequeue()
         delete nodeToDelete;
     }
 }
+
+bool PriorityQueue::empty(){
+    return front == nullptr;
+}
