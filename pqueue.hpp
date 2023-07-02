@@ -13,7 +13,8 @@ public:
 
     /*
      *Add element in Priority Queue
-     *@param Node Element to be added
+     *@param priority Priority level of the element
+     *@param data Information about the element
      */
     void enqueue(int priority, string data);
     void dequeue();

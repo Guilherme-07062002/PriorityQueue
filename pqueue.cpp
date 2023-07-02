@@ -21,7 +21,7 @@ PriorityQueue::~PriorityQueue()
 void PriorityQueue::enqueue(int priority, string data)
 {
     Node *newNode = new Node(priority, data);
-    // Caso especial: se a fila estiver vazia ou o novo nó tem prioridade maior que a frente
+
     if (front == nullptr || priority < front->priority)
     {
         newNode->next = front;
@@ -30,7 +30,6 @@ void PriorityQueue::enqueue(int priority, string data)
     else
     {
         Node *current = front;
-        // Procura a posição correta para inserir o novo nó
         while (current->next != nullptr && current->next->priority <= priority)
         {
             current = current->next;
@@ -38,6 +37,7 @@ void PriorityQueue::enqueue(int priority, string data)
 
         newNode->next = current->next;
         current->next = newNode;
+        cout << "New password enqueued.\n";
     }
 }
 
@@ -48,6 +48,7 @@ void PriorityQueue::dequeue()
         Node *nodeToDelete = front;
         front = front->next;
         delete nodeToDelete;
+        cout << "Password removed from queue.\n";
     }
 }
 
