@@ -51,6 +51,23 @@ void PriorityQueue::dequeue()
     }
 }
 
-bool PriorityQueue::empty(){
+bool PriorityQueue::empty()
+{
     return front == nullptr;
+}
+
+void print()
+{
+    if (is_empty)
+    {
+        cout << "Queue is empty \n";
+        return;
+    }
+
+    Node *current = front;
+    while (current != nullptr)
+    {
+        std::cout << "Priority: " << current->priority << ", Data: " << current->data << std::endl;
+        current = current->next;
+    }
 }
