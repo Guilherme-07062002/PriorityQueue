@@ -20,23 +20,30 @@ void PriorityQueue::enqueue(int priority, std::string data)
 {
     Node *newNode = new Node(priority, data);
 
-    if (front == nullptr || priority < front->priority)
+    if (length < capacity)
     {
-        newNode->next = front;
-        front = newNode;
+        if (front == nullptr || priority < front->priority)
+        {
+            newNode->next = front;
+            front = newNode;
+        }
+        else
+        {
+            Node *current = front;
+            while (current->next != nullptr && current->next->priority <= priority)
+            {
+                current = current->next;
+            }
+
+            newNode->next = current->next;
+            current->next = newNode;
+        }
+        std::cout << "New element enqueued.\n";
     }
     else
     {
-        Node *current = front;
-        while (current->next != nullptr && current->next->priority <= priority)
-        {
-            current = current->next;
-        }
-
-        newNode->next = current->next;
-        current->next = newNode;
+        std::cout << "The queue is full.\n";
     }
-    std::cout << "New element enqueued.\n";
 }
 
 void PriorityQueue::dequeue()
@@ -47,6 +54,10 @@ void PriorityQueue::dequeue()
         front = front->next;
         delete nodeToDelete;
         std::cout << "Element removed from queue.\n";
+    }
+    else
+    {
+        std::cout << "The queue is empty.\n";
     }
 }
 
@@ -59,7 +70,7 @@ void PriorityQueue::print()
 {
     if (empty())
     {
-        std::cout << "Queue is empty \n";
+        std::cout << "The queue is empty \n";
         return;
     }
 
