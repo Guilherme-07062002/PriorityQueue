@@ -13,7 +13,9 @@ struct Node
     std::string data;
     Node *next;
 
+    Node() : priority(0), data(""), next(nullptr) {}
+
     Node(int priority, const std::string &data) : priority(priority), data(data), next(nullptr) {}
 };
 
-#endif;
+#endif

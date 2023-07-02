@@ -1,10 +1,10 @@
 #include <iostream>
-#include "pqueue.cpp"
+#include "pqueue.hpp"
 
 using namespace std;
 
 int main(){
-    PriorityQueue priorityQueue;
+    PriorityQueue priorityQueue = PriorityQueue();
     priorityQueue.print();
 
     // priorityQueue.enqueue(1, "Data 1");

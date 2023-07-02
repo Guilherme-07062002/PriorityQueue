@@ -16,7 +16,7 @@ public:
      *@param priority Priority level of the element
      *@param data Information about the element
      */
-    void enqueue(int priority, string data);
+    void enqueue(int priority, std::string data);
     void dequeue();
     bool empty();
     void print();
@@ -30,4 +30,4 @@ private:
     Node arrayNode[capacity];
 };
 
-#endif;
+#endif

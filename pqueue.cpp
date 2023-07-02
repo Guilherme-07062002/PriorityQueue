@@ -43,7 +43,7 @@ void PriorityQueue::enqueue(int priority, string data)
 
 void PriorityQueue::dequeue()
 {
-    if (!isEmpty())
+    if (!empty())
     {
         Node *nodeToDelete = front;
         front = front->next;
@@ -57,9 +57,9 @@ bool PriorityQueue::empty()
     return front == nullptr;
 }
 
-void print()
+void PriorityQueue::print()
 {
-    if (is_empty)
+    if (empty())
     {
         cout << "Queue is empty \n";
         return;
