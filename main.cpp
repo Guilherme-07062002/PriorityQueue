@@ -4,14 +4,31 @@
 int main()
 {
     PriorityQueue priorityQueue = PriorityQueue();
+    int option;
+    do
+    {
+        std::cout << "       MENU\n";
 
-    // priorityQueue.enqueue(1, "Data 1");
-    priorityQueue.enqueue(1, "Data 2");
-    // priorityQueue.dequeue();
-    // std::cout << "The queue is " << (priorityQueue.empty() == 1 ? "empty" : "not empty")
-    //           << std::endl;
+        std::cout << "1. Add password\n";
+        std::cout << "2. Remove password\n";
+        std::cout << "3. Show\n";
+        std::cout << "0. Exit\n";
+        std::cout << "Choose a option: ";
+        std::cin >> option;
 
-    priorityQueue.print();
-
+        switch (option)
+        {
+        case 1:
+            
+        case 2:
+            // Lógica para a opção 2
+            std::cout << "Opção 2 selecionada.\n";
+            break;
+        case 3:
+            // Lógica para a opção 3
+            std::cout << "Opção 3 selecionada.\n";
+            break;
+        }
+    } while (option != 0);
     return 0;
 }
