@@ -9,13 +9,13 @@
  */
 struct Node
 {
-    int priority;
+    std::string priority;
     std::string data;
     Node *next;
 
-    Node() : priority(0), data(""), next(nullptr) {}
+    Node() : data(""), priority(""), next(nullptr) {}
 
-    Node(int priority, const std::string &data) : priority(priority), data(data), next(nullptr) {}
+    Node(const std::string &data, const std::string &priority) : data(data), priority(priority), next(nullptr) {}
 };
 
 #endif

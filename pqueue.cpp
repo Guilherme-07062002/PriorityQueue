@@ -16,13 +16,13 @@ PriorityQueue::~PriorityQueue()
     std::cout << "Destroying object...\n";
 }
 
-void PriorityQueue::enqueue(int priority, std::string data)
+void PriorityQueue::enqueue(std::string data, std::string priority)
 {
-    Node *newNode = new Node(priority, data);
+    Node *newNode = new Node(data, priority);
 
     if (length < capacity)
     {
-        if (front == nullptr || priority < front->priority)
+        if (front == nullptr || std::stoi(priority) < std::stoi(front->priority))
         {
             newNode->next = front;
             front = newNode;
@@ -30,7 +30,7 @@ void PriorityQueue::enqueue(int priority, std::string data)
         else
         {
             Node *current = front;
-            while (current->next != nullptr && current->next->priority <= priority)
+            while (current->next != nullptr && std::stoi(current->next->priority) <= std::stoi(priority))
             {
                 current = current->next;
             }

@@ -16,7 +16,7 @@ public:
      *@param priority Priority level of the element
      *@param data Information about the element
      */
-    void enqueue(int priority, std::string data);
+    void enqueue(std::string data, std::string priority);
     void dequeue();
     bool empty();
     void print();
