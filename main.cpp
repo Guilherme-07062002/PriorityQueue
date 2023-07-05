@@ -19,7 +19,9 @@ int main()
         switch (option)
         {
         case 1:
-            
+            // Lógica para a opção 1
+            std::cout << "Opção 1 selecionada.\n";
+            break;
         case 2:
             // Lógica para a opção 2
             std::cout << "Opção 2 selecionada.\n";
