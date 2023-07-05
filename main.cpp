@@ -5,6 +5,10 @@ int main()
 {
     PriorityQueue priorityQueue = PriorityQueue();
     int option;
+    std::string operation;
+    std::string preferential;
+    std::string data;
+    std::string priority;
     do
     {
         std::cout << "       MENU\n";
@@ -19,8 +23,19 @@ int main()
         switch (option)
         {
         case 1:
-            // Lógica para a opção 1
-            std::cout << "Opção 1 selecionada.\n";
+            std::cout << "Option 1 selected.\n";
+            do
+            {
+                std::cout << "Type your preferential [P / N]: ";
+                std::cin >> preferential;
+            } while (preferential != "N" && preferential != "P");
+            do
+            {
+                std::cout << "Operation: [E / S / D / E]: ";
+                std::cin >> operation;
+            } while (operation != "S" && operation != "D" && operation != "F" && operation != "E");
+            data = preferential + operation;
+            priorityQueue.enqueue(data, "000");
             break;
         case 2:
             // Lógica para a opção 2
@@ -29,6 +44,7 @@ int main()
         case 3:
             // Lógica para a opção 3
             std::cout << "Opção 3 selecionada.\n";
+            priorityQueue.print();
             break;
         }
     } while (option != 0);
