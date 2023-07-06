@@ -18,6 +18,23 @@ PriorityQueue::~PriorityQueue()
 
 void PriorityQueue::enqueue(std::string data, std::string priority)
 {
+
+    if (length >= 0 && length <= 9)
+    {
+        priority[2] = static_cast<char>((length + 1) + '0');
+    }
+    else if (length >= 10 && length <= 99)
+    {
+        priority[1] = static_cast<char>(((length + 1) / 10) + '0');
+        priority[2] = static_cast<char>(((length + 1) % 10) + '0');
+    }
+    else if (length >= 100 && length <= 999)
+    {
+        priority[0] = static_cast<char>(((length + 1) / 100) + '0');
+        priority[1] = static_cast<char>(((length + 1) / 10) % 10 + '0');
+        priority[2] = static_cast<char>(((length + 1) % 10) + '0');
+    }
+
     Node *newNode = new Node(data, priority);
 
     if (length < capacity)
@@ -38,6 +55,7 @@ void PriorityQueue::enqueue(std::string data, std::string priority)
             newNode->next = current->next;
             current->next = newNode;
         }
+        length++;
         std::cout << "New element enqueued.\n";
     }
     else
@@ -77,7 +95,7 @@ void PriorityQueue::print()
     Node *current = front;
     while (current != nullptr)
     {
-        std::cout <<  current->data << current->priority << std::endl;
+        std::cout << current->data << current->priority << std::endl;
         current = current->next;
     }
 }
