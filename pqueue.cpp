@@ -1,4 +1,6 @@
 #include <iostream>
+#include <chrono>
+#include <thread>
 #include "pqueue.hpp"
 #include "node.hpp"
 
@@ -9,15 +11,19 @@ PriorityQueue::PriorityQueue()
     is_empty = true;
     index_start = 0;
     front = nullptr;
-    for (int i = 0; i < 3; ++i)
+    for (int i = 0; i < 4; ++i)
     {
         count[i] = -1;
     }
+    std::chrono::seconds duration(1);
+    std::this_thread::sleep_for(duration);
 }
 
 PriorityQueue::~PriorityQueue()
 {
     std::cout << "Destroying object...\n";
+    std::chrono::seconds duration(1);
+    std::this_thread::sleep_for(duration);
 }
 
 void PriorityQueue::enqueue(std::string data, std::string priority)
@@ -36,6 +42,10 @@ void PriorityQueue::enqueue(std::string data, std::string priority)
     case 'F':
         count[2] += 1;
         index = 2;
+        break;
+    case 'E':
+        count[3] += 1;
+        index = 3;
         break;
     }
 
@@ -82,6 +92,8 @@ void PriorityQueue::enqueue(std::string data, std::string priority)
     {
         std::cout << "The queue is full.\n";
     }
+    std::chrono::seconds duration(2);
+    std::this_thread::sleep_for(duration);
 }
 
 void PriorityQueue::dequeue()
@@ -97,6 +109,8 @@ void PriorityQueue::dequeue()
     {
         std::cout << "The queue is empty.\n";
     }
+    std::chrono::seconds duration(2);
+    std::this_thread::sleep_for(duration);
 }
 
 bool PriorityQueue::empty()
@@ -118,4 +132,6 @@ void PriorityQueue::print()
         std::cout << current->data << current->priority << std::endl;
         current = current->next;
     }
+    std::chrono::seconds duration(2);
+    std::this_thread::sleep_for(duration);
 }

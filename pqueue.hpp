@@ -26,7 +26,7 @@ private:
     int index_start;
     bool is_empty;
     int length;
-    int count[3];
+    int count[4];
 
     Node arrayNode[capacity];
 };
