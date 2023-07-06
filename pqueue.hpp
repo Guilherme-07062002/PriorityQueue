@@ -13,10 +13,10 @@ public:
 
     /*
      *Add element in Priority queue
-     *@param priority Priority level of the element
      *@param data Information about the element
+     *@param counter Counter of password
      */
-    void enqueue(std::string data, std::string priority);
+    void enqueue(std::string data, std::string counter);
     void dequeue();
     bool empty();
     void print();

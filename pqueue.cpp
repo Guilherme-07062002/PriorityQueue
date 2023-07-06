@@ -26,7 +26,7 @@ PriorityQueue::~PriorityQueue()
     std::this_thread::sleep_for(duration);
 }
 
-void PriorityQueue::enqueue(std::string data, std::string priority)
+void PriorityQueue::enqueue(std::string data, std::string counter)
 {
     int index;
     switch (data[1])
@@ -51,25 +51,25 @@ void PriorityQueue::enqueue(std::string data, std::string priority)
 
     if (length >= 0 && length <= 9)
     {
-        priority[2] = static_cast<char>((count[index]) + '0');
+        counter[2] = static_cast<char>((count[index]) + '0');
     }
     else if (length >= 10 && length <= 99)
     {
-        priority[1] = static_cast<char>(((count[index]) / 10) + '0');
-        priority[2] = static_cast<char>(((count[index]) % 10) + '0');
+        counter[1] = static_cast<char>(((count[index]) / 10) + '0');
+        counter[2] = static_cast<char>(((count[index]) % 10) + '0');
     }
     else if (length >= 100 && length <= 999)
     {
-        priority[0] = static_cast<char>(((count[index]) / 100) + '0');
-        priority[1] = static_cast<char>(((count[index]) / 10) % 10 + '0');
-        priority[2] = static_cast<char>(((count[index]) % 10) + '0');
+        counter[0] = static_cast<char>(((count[index]) / 100) + '0');
+        counter[1] = static_cast<char>(((count[index]) / 10) % 10 + '0');
+        counter[2] = static_cast<char>(((count[index]) % 10) + '0');
     }
 
-    Node *newNode = new Node(data, priority);
+    Node *newNode = new Node(data, counter);
 
     if (length < capacity)
     {
-        if (front == nullptr || std::stoi(priority) < std::stoi(front->priority))
+        if (front == nullptr || std::stoi(counter) < std::stoi(front->counter))
         {
             newNode->next = front;
             front = newNode;
@@ -77,7 +77,7 @@ void PriorityQueue::enqueue(std::string data, std::string priority)
         else
         {
             Node *current = front;
-            while (current->next != nullptr && std::stoi(current->next->priority) <= std::stoi(priority))
+            while (current->next != nullptr && std::stoi(current->next->counter) <= std::stoi(counter))
             {
                 current = current->next;
             }
@@ -129,7 +129,7 @@ void PriorityQueue::print()
     Node *current = front;
     while (current != nullptr)
     {
-        std::cout << current->data << current->priority << std::endl;
+        std::cout << current->data << current->counter << std::endl;
         current = current->next;
     }
     std::chrono::seconds duration(2);

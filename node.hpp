@@ -4,18 +4,18 @@
 
 /*
  *Priority queue node element
- *@param priority Node priority level
+ *@param counter Node counter
  *@param data Information about the node
  */
 struct Node
 {
-    std::string priority;
+    std::string counter;
     std::string data;
     Node *next;
 
-    Node() : data(""), priority(""), next(nullptr) {}
+    Node() : data(""), counter(""), next(nullptr) {}
 
-    Node(const std::string &data, const std::string &priority) : data(data), priority(priority), next(nullptr) {}
+    Node(const std::string &data, const std::string &counter) : data(data), counter(counter), next(nullptr) {}
 };
 
 #endif
