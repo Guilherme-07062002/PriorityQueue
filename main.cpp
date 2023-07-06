@@ -23,7 +23,6 @@ int main()
         switch (option)
         {
         case 1:
-            std::cout << "Option 1 selected.\n";
             do
             {
                 std::cout << "Type your preferential [P / N]: ";
@@ -43,7 +42,6 @@ int main()
             break;
         case 3:
             // Lógica para a opção 3
-            std::cout << "Opção 3 selecionada.\n";
             priorityQueue.print();
             break;
         }

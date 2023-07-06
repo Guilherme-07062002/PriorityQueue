@@ -77,7 +77,7 @@ void PriorityQueue::print()
     Node *current = front;
     while (current != nullptr)
     {
-        std::cout << "Priority: " << current->priority << ", Data: " << current->data << std::endl;
+        std::cout <<  current->data << current->priority << std::endl;
         current = current->next;
     }
 }
