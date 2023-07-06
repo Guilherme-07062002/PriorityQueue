@@ -3,7 +3,7 @@
 #ifndef PQUEUE_HPP
 #define PQUEUE_HPP
 
-const int capacity = 1000;
+const int capacity = 5;
 
 class PriorityQueue
 {

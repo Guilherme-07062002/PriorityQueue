@@ -13,9 +13,9 @@ int main()
     {
         std::cout << "       MENU\n";
 
-        std::cout << "1. Add password\n";
+        std::cout << "1. Call password\n";
         std::cout << "2. Remove password\n";
-        std::cout << "3. Show\n";
+        std::cout << "3. Show panel\n";
         std::cout << "0. Exit\n";
         std::cout << "Choose a option: ";
         std::cin >> option;
@@ -40,7 +40,6 @@ int main()
             priorityQueue.dequeue();
             break;
         case 3:
-            // Lógica para a opção 3
             priorityQueue.print();
             break;
         }
