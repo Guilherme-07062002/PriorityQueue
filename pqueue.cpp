@@ -29,6 +29,16 @@ PriorityQueue::~PriorityQueue()
 void PriorityQueue::enqueue(std::string data, std::string counter)
 {
     int index;
+    int priority;
+    switch (data[0])
+    {
+    case 'P':
+        priority = 0;
+        break;
+    case 'N':
+        priority = 1;
+        break;
+    }
     switch (data[1])
     {
     case 'S':
@@ -65,11 +75,11 @@ void PriorityQueue::enqueue(std::string data, std::string counter)
         counter[2] = static_cast<char>(((count[index]) % 10) + '0');
     }
 
-    Node *newNode = new Node(data, counter);
+    Node *newNode = new Node(data, counter, priority);
 
     if (length < capacity)
     {
-        if (front == nullptr || std::stoi(counter) < std::stoi(front->counter))
+        if (front == nullptr || priority < front->priority)
         {
             newNode->next = front;
             front = newNode;
@@ -77,7 +87,7 @@ void PriorityQueue::enqueue(std::string data, std::string counter)
         else
         {
             Node *current = front;
-            while (current->next != nullptr && std::stoi(current->next->counter) <= std::stoi(counter))
+            while (current->next != nullptr && current->next->priority < priority)
             {
                 current = current->next;
             }
