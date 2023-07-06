@@ -15,7 +15,7 @@ int main()
         std::cout << "       MENU\n";
         std::cout << "----------------------\n";
         std::cout << "1. Call password\n";
-        std::cout << "2. Remove password\n";
+        std::cout << "2. Retire password\n";
         std::cout << "3. Show panel\n";
         std::cout << "0. Exit\n";
         std::cout << "Choose a option: ";
