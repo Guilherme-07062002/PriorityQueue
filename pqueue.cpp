@@ -9,6 +9,10 @@ PriorityQueue::PriorityQueue()
     is_empty = true;
     index_start = 0;
     front = nullptr;
+    for (int i = 0; i < 3; ++i)
+    {
+        count[i] = -1;
+    }
 }
 
 PriorityQueue::~PriorityQueue()
@@ -18,21 +22,37 @@ PriorityQueue::~PriorityQueue()
 
 void PriorityQueue::enqueue(std::string data, std::string priority)
 {
+    int index;
+    switch (data[1])
+    {
+    case 'S':
+        count[0] += 1;
+        index = 0;
+        break;
+    case 'D':
+        count[1] += 1;
+        index = 1;
+        break;
+    case 'F':
+        count[2] += 1;
+        index = 2;
+        break;
+    }
 
     if (length >= 0 && length <= 9)
     {
-        priority[2] = static_cast<char>((length + 1) + '0');
+        priority[2] = static_cast<char>((count[index]) + '0');
     }
     else if (length >= 10 && length <= 99)
     {
-        priority[1] = static_cast<char>(((length + 1) / 10) + '0');
-        priority[2] = static_cast<char>(((length + 1) % 10) + '0');
+        priority[1] = static_cast<char>(((count[index]) / 10) + '0');
+        priority[2] = static_cast<char>(((count[index]) % 10) + '0');
     }
     else if (length >= 100 && length <= 999)
     {
-        priority[0] = static_cast<char>(((length + 1) / 100) + '0');
-        priority[1] = static_cast<char>(((length + 1) / 10) % 10 + '0');
-        priority[2] = static_cast<char>(((length + 1) % 10) + '0');
+        priority[0] = static_cast<char>(((count[index]) / 100) + '0');
+        priority[1] = static_cast<char>(((count[index]) / 10) % 10 + '0');
+        priority[2] = static_cast<char>(((count[index]) % 10) + '0');
     }
 
     Node *newNode = new Node(data, priority);

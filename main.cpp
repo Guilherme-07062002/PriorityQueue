@@ -30,9 +30,9 @@ int main()
             } while (preferential != "N" && preferential != "P");
             do
             {
-                std::cout << "Operation: [E / S / D / E]: ";
+                std::cout << "Operation: [ S / D / F]: ";
                 std::cin >> operation;
-            } while (operation != "S" && operation != "D" && operation != "F" && operation != "E");
+            } while (operation != "S" && operation != "D" && operation != "F");
             data = preferential + operation;
             priorityQueue.enqueue(data, "000");
             break;
