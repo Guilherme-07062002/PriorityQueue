@@ -7,7 +7,7 @@
 PriorityQueue::PriorityQueue()
 {
     std::cout << "Building object...\n";
-    length = -1;
+    length = 0;
     is_empty = true;
     index_start = 0;
     front = nullptr;
@@ -110,10 +110,18 @@ void PriorityQueue::dequeue()
 {
     if (!empty())
     {
-        Node *nodeToDelete = front;
-        front = front->next;
-        delete nodeToDelete;
-        std::cout << "Element removed from queue.\n";
+        if (length == capacity)
+        {
+            Node *nodeToDelete = front;
+            front = front->next;
+            delete nodeToDelete;
+            length--;
+            std::cout << "Element removed from queue.\n";
+        }
+        else
+        {
+            std::cout << "The element only can dequeued if the queue is full.\n";
+        }
     }
     else
     {
