@@ -37,8 +37,7 @@ int main()
             priorityQueue.enqueue(data, "000");
             break;
         case 2:
-            // Lógica para a opção 2
-            std::cout << "Opção 2 selecionada.\n";
+            priorityQueue.dequeue();
             break;
         case 3:
             // Lógica para a opção 3
@@ -46,5 +45,6 @@ int main()
             break;
         }
     } while (option != 0);
+    std::cout << "Bye." << std::endl;
     return 0;
 }
